@@ -3,9 +3,6 @@ title: "How to create a statistical report with R Markdown"
 author: "Anja Eggert"
 date: "`r Sys.Date()`"
 output: html_document
-#output:
-#  pdf_document:
-#    latex_engine: xelatex
 ---
 
 <style>
@@ -144,33 +141,12 @@ ggplot(aes(x = group, y = concentration, fill = group))+
   ylab(label = c(expression(paste("Concentration (nmol ", mg^-1, " lipid)"))))+
   theme_bw()+
   theme(legend.position="none")
+
+# You can also save the plot as png-file
+# ggsave(filename = "lipids-plot.png", width = 20, height = 24, units = "cm")
 ```
 
 \  
-
-You can also save the plot as png-file:
-
-```{r save.plot, message = FALSE, warning = FALSE, eval = FALSE}
-png("./FIG/lipids-226-plot.png", width = 25, height = 30, units = 'cm', res = 300, type='cairo')
-
-dat %>% 
-  dplyr::filter(grepl("22:6",lipid)) %>% 
-  mutate(lipid = as.factor(lipid)) %>% 
-  mutate(lipid = reorder(lipid, -concentration)) %>% 
-
-ggplot(aes(x = group, y = concentration, fill = group))+
-  geom_boxplot()+
-  facet_wrap(~lipid, ncol = 3, scales = "free_y")+
-  scale_fill_manual(values = c("cornflowerblue", "orange"))+
-  xlab(label = "")+
-  ylab(label = c(expression(paste("Concentration (nmol ", mg^-1, " lipid)"))))+
-  theme_bw()+
-  theme(legend.position="none")
-
-dev.off()
-```
-
-\ 
 
 # Multiple *t*-tests
 
@@ -262,12 +238,6 @@ sum(p.adj.BH < 0.05)
 
 \  
 
-```{r kmeans.schematic, echo=FALSE, out.width='40%', fig.align='center', fig.cap='https://towardsdatascience.com/k-means-clustering-algorithm-applications-evaluation-methods-and-drawbacks'}
-knitr::include_graphics("./FIG/k-means.png")
-``` 
-
-\  
-
 The k-means algorithm can be summarized as follow:
 \  
 
@@ -326,12 +296,6 @@ dat.wide.scaled <- scale(dat.wide)
 <div class="alert alert-info">
 As k-means clustering algorithm starts with k randomly selected centroids, it’s always recommended to use the `set.seed()` function in order to set a seed for R’s random number generator. The aim is to make the results **reproducible !!**
 </div>
-
-\  
-
-```{r seed, echo=FALSE, out.width='60%', fig.align='center', fig.cap='https://www.digminecraft.com/getting_started/how_to_create_world_with_seed.php'}
-knitr::include_graphics("./FIG/enter_seed_pc.png")
-``` 
 
 \  
 
@@ -398,10 +362,3 @@ fviz_cluster(km.res, data = dat.wide.scaled,
 ```{r session.info}
 sessionInfo()
 ```
-
-\  
-\  
-
-```{r twitter, echo=FALSE, out.width='60%', fig.align='center'}
-knitr::include_graphics("./FIG/twitter-ggplot2-1Mio.png")
-``` 
