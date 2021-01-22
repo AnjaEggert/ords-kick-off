@@ -10,7 +10,7 @@ This workshop introduces RMarkdown with simple statistical examples.
 
 
 ## Usage
-The RMarkdown document can be rendered to an html format (or pdf, GitHub markdown and more) using the R knitr package.
+The RMarkdown document can be rendered to an html format (or pdf, GitHub markdown and more) using the `R knitr` package.
 
 
 ## License
@@ -20,7 +20,7 @@ This work is licensed under the [Creative Commons Attribution 4.0 International 
 
 In order to reference the GitHub repository, please attribute this as:
 
-Anja Eggert. Workshop Materials: Reproducible statistical data analysis with R and RMarkdown, https://github.com/AnjaEggert/ords-kick-off
+Anja Eggert. "Workshop Materials: Reproducible statistical data analysis with R and RMarkdown," https://github.com/AnjaEggert/ords-kick-off
 
 ## Acknowledgements
 This repository contains an lipidomics data set that was kindly provided by Dirk Dannenberger @Leibniz Institute of Farm Animal Biology in Dummerstorf, Germany.
