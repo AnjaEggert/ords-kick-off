@@ -10,7 +10,7 @@ This workshop introduces RMarkdown with simple statistical examples.
 
 
 ## Usage
-The RMarkdown document can be rendered to an html format (or pdf, GitHub markdown and more) using the `R knitr` package.
+The RMarkdown document can be rendered to an html format (or pdf, GitHub markdown and more) using the `R knitr` package. The output html file is also contained in this repository.
 
 
 ## License
